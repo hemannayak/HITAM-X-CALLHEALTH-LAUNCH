@@ -1,0 +1,30 @@
+:root {
+  /* Premium SaaS Theme */
+  --bg-dark: #f8fafc; /* Very light slate background */
+  
+  --text-primary: #0f172a; /* Deep slate for primary text */
+  --text-dim: #64748b;     /* Muted slate */
+  
+  --clinic-cyan: #0ea5e9;  /* Bright SaaS Blue */
+  --clinic-cyan-glow: rgba(14, 165, 233, 0.4);
+  
+  --clinic-blue: #3b82f6;
+  --clinic-blue-glow: rgba(59, 130, 246, 0.3);
+  
+  --hitam-green: #22c55e;
+  --hitam-green-glow: rgba(34, 197, 94, 0.3);
+  
+  --callhealth-navy: #1e3a8a;
+  
+  --alert-red: #ef4444; /* For the live blinking dot */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root {
+  width: 100%; height: 100%;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,106 @@
+.screen {
+  position: relative; width: 100%; height: 100%;
+  background: var(--bg-dark); overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  animation: revIn 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes revIn { from{opacity:0;} to{opacity:1;} }
+.canvas { position: absolute; inset: 0; display: block; }
+.vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 40%, rgba(255,255,255,0.8) 100%);
+}
+
+/* BIG TOP LEFT PROJECT LIVE INDICATOR */
+.topLiveIndicator {
+  position: absolute; top: 32px; left: 40px; z-index: 50;
+  display: flex; align-items: center; gap: 12px;
+  background: white; padding: 12px 24px; border-radius: 40px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.15);
+  font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; color: #ef4444; /* Clean solid red text */
+}
+
+.liveDot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #ef4444; 
+  box-shadow: 0 0 16px #ef4444; 
+  animation: ld 1s ease-in-out infinite; 
+}
+@keyframes ld { 0%,100%{opacity:1; transform: scale(1);} 50%{opacity:0.3; transform: scale(0.9);} }
+
+.hero {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0 40px; width: 100%; max-width: 1000px;
+}
+
+/* LOGO CARD CENTERED AND LARGE */
+.logoCard {
+  display: flex; align-items: center; justify-content: center; gap: 48px;
+  margin-bottom: 40px; padding: 32px 64px;
+  background: white; border: 1px solid #e2e8f0; border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+  animation: lgIn 1.4s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+}
+@keyframes lgIn { from{opacity:0;transform:scale(0.9) translateY(20px);} to{opacity:1;transform:scale(1) translateY(0);} }
+
+.logoHitam { height: 110px; width: auto; object-fit: contain; }
+.chBg { background: white; padding: 16px; align-items: center; display: flex; justify-content: center; }
+.logoCH { height: 64px; width: auto; object-fit: contain; }
+
+.divider { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.divLine { width: 1px; height: 40px; background: #e2e8f0; }
+.divX { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 200; color: #cbd5e1; }
+
+
+.title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 800;
+  color: var(--callhealth-navy); margin-bottom: 8px; letter-spacing: -1px;
+  animation: tIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s both;
+}
+@keyframes tIn { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:none;} }
+
+.liveWord {
+  color: #ef4444;
+  animation: liveBlink 1s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.15; }
+}
+
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.8rem); font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-primary); margin-bottom: 12px;
+  animation: fUp 1.2s ease 1.1s both;
+}
+
+.subTagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem); font-weight: 400; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 48px; max-width: 800px; line-height: 1.6;
+  animation: fUp 1.2s ease 1.3s both;
+}
+@keyframes fUp { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:none;} }
+
+
+.credits {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fUp 1.2s ease 1.4s both;
+}
+.creditName { font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--text-primary); }
+.creditSep { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin: 4px 0; }
+
+.botBar { 
+  position: absolute; bottom: 0; left: 0; right: 0; 
+  display: flex; align-items: center; justify-content: space-between; 
+  padding: 16px 48px; background: rgba(255,255,255,0.85); 
+  border-top: 1px solid #e2e8f0; backdrop-filter: blur(24px); z-index: 15; 
+}
+.botItem { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); display: flex; align-items: center; gap: 10px; }
