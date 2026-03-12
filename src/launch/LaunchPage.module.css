@@ -3,5 +3,48 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: #ffffff; /* Transitioning to light SaaS theme */
+  background: #ffffff;
+}
+
+/* Optional Phase Navigation Controls */
+.navOverlay {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  pointer-events: none; /* Let clicks pass through empty space */
+  z-index: 999; /* Always on top of everything */
+}
+
+.navBtn {
+  pointer-events: auto; /* Buttons should catch clicks */
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  color: rgba(15, 23, 42, 0.5); /* subtle dark text for light bg or dark bg */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.navBtn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--clinic-blue, #0ea5e9);
+  transform: scale(1.1);
+}
+
+.navBtn:disabled {
+  opacity: 0;
+  pointer-events: none;
 }
