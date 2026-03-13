@@ -3,16 +3,8 @@ import styles from './IntroScreen.module.css'
 
 export default function IntroScreen({ advance }) {
 
-  // Auto-advance after giving time to read the logos (4 seconds per plan)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      advance()
-    }, 4000)
-    return () => clearTimeout(timer)
-  }, [advance])
-
   return (
-    <div className={styles.screen}>
+    <div className={styles.screen} onClick={advance} style={{cursor: 'pointer'}}>
       <div className={styles.topNav}>
         <span className={styles.navLabel}>System Initialization</span>
         <span className={styles.navVersion}>v2.0.0</span>
